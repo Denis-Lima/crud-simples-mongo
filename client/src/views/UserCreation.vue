@@ -17,6 +17,11 @@
             justify="center"
             style="margin: 10px auto;"
           >
+            <v-row>
+              <v-col>
+                <p class="text-h3 font-weight-light">Cadastrar novo usuário</p>
+              </v-col>
+            </v-row>
             <v-row
               align="center"
               justify="center"
