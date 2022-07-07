@@ -16,7 +16,7 @@ const findUserById = async(id) => {
 }
 
 const updateUser = async(id, userData) => {
-    const updatedUser = await User.findByIdAndUpdate(id, userData, {lean: true})
+    const updatedUser = await User.findByIdAndUpdate(id, userData, {lean: true, new: true})
     return updatedUser
 }
 

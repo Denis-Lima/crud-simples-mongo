@@ -1,7 +1,5 @@
 import axios from 'axios'
 
-console.log(process.env.SERVER_URL)
-console.log(process.env)
 const api = axios.create({
     baseURL: process.env.VUE_APP_SERVER_URL,
     headers: {

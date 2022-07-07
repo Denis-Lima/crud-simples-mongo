@@ -19,7 +19,7 @@ new Vue({
     render: (h) => h(App),
 
     created() {
-        this.$notify.sucess = (message) => this.$notify({type: "sucess", message})
+        this.$notify.success = (message) => this.$notify({type: "success", message})
         this.$notify.warning = (message) => this.$notify({type: "warning", message})
         this.$notify.error = (message) => this.$notify({type: "danger", message})
         this.$notify.info = (message) => this.$notify({type: "info", message})

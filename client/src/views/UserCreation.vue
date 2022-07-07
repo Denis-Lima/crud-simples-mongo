@@ -31,6 +31,7 @@
           <v-col cols="8">
             <v-text-field
               label="CPF"
+              type="number"
               v-model="user.cpf"
               filled
               :rules="[rules.required, rules.cpf]"
@@ -39,16 +40,25 @@
           <v-col cols="8">
             <v-text-field
               label="Telefone"
+              type="number"
               v-model="user.phone"
               filled
               :rules="[rules.phone]"
             />
           </v-col>
           <v-col cols="8">
-            <v-btn
-              color="green lighten-2"
-              type="submit"
-            >Criar usuário</v-btn>
+            <v-row justify="center">
+              <v-col cols="4">
+                <v-btn
+                  color="green lighten-2"
+                  @click="createUser"
+                  :loading="loading"
+                >Criar usuário</v-btn>
+              </v-col>
+              <v-col cols="4">
+                <back-button />
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </v-card>
@@ -57,9 +67,14 @@
 </template>
 
 <script>
-import api from '../services/api'
+import api from '@/services/api'
+import BackButton from "@/components/BackButton"
+
 export default {
-    name: 'CreateUser',
+    name: 'UserCreation',
+    components: {
+        BackButton
+    },
 
     data() {
         return {
@@ -69,10 +84,10 @@ export default {
                     const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
                     return pattern.test(value) || 'E-mail inválido'
                 },
-                cpf: value => (value.length === 11 && /\d{11}/.test(value)) || 'CPF deve ter 11 números',
+                cpf: value => (value !== null && value.toString().length === 11 && /\d{11}/.test(value)) || 'CPF deve ter 11 números',
                 phone: value => {
                     if (value) {
-                        return (value.length === 10 || value.length === 11) || 'Telefone deve ter 10 ou 11 dígitos'
+                        return (value.toString().length === 10 || value.toString().length === 11) || 'Telefone deve ter 10 ou 11 dígitos'
                     }
                     return true
                 }
@@ -82,7 +97,8 @@ export default {
                 email: '',
                 cpf: null,
                 phone: null,
-            }
+            },
+            loading: false
         }
     },
 
@@ -90,10 +106,16 @@ export default {
         async createUser() {
             if (!this.$refs.form.validate()) return
             try {
+                this.loading = true
                 const response = await api.post("/user", this.user)
-                this.$router.push(`/user/${response.data.user._id}`)
+                this.$notify.success("Usuário cadastrado com sucesso!")
+                setTimeout(() => {
+                    this.$router.push(`/user/${response.data.user._id}`)
+                }, 2000)
             } catch (error) {
                 this.$notify.error("Não foi possível criar o usuário")
+            } finally {
+                this.loading = false
             }
         }
     }
@@ -101,5 +123,15 @@ export default {
 </script>
 
 <style>
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 </style>

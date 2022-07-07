@@ -1,7 +1,8 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
 import UsersList from "../views/UsersList.vue"
-import CreateUser from "../views/CreateUser.vue"
+import UserCreation from "../views/UserCreation.vue"
+import UserView from "../views/UserView.vue"
 
 Vue.use(VueRouter)
 
@@ -13,8 +14,13 @@ const routes = [
     },
     {
         path: "/create-user",
-        name: "CreateUser",
-        component: CreateUser,
+        name: "UserCreation",
+        component: UserCreation,
+    },
+    {
+        path: "/user/:id",
+        name: "UserView",
+        component: UserView,
     },
 ]
 
