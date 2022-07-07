@@ -6,15 +6,31 @@
   >
     <v-row justify="center">
       <v-col
-        v-for="(button, index) in buttons"
-        :key="index"
-        cols="2"
+        lg="2"
+        md="3"
+        sm="4"
+        cols="6"
+        class="d-flex justify-center"
       >
         <router-link
-          :to="button.path"
+          to="/"
           style="text-decoration: none;"
         >
-          <v-btn elevation="5">{{button.text}}</v-btn>
+          <v-btn elevation="5">Listar Usuários</v-btn>
+        </router-link>
+      </v-col>
+      <v-col
+        lg="2"
+        md="3"
+        sm="4"
+        cols="6"
+        class="d-flex justify-center"
+      >
+        <router-link
+          to="/create-user"
+          style="text-decoration: none;"
+        >
+          <v-btn elevation="5">Criar Usuário</v-btn>
         </router-link>
       </v-col>
 

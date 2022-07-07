@@ -1,67 +1,110 @@
 <template>
   <v-form ref="form">
     <v-container>
-      <v-card
-        align="center"
+      <v-row
         justify="center"
-        max-width="50%"
-        style="margin: 10px auto;"
+        align="center"
+        no-gutters
       >
-        <v-row
-          align="center"
-          justify="center"
-          class="flex-column"
+        <v-col
+          xl="6"
+          lg="8"
+          md="10"
+          sm="12"
         >
-          <v-col cols="8">
-            <v-text-field
-              label="Nome"
-              v-model="user.name"
-              filled
-              :rules="[rules.required]"
-            />
-          </v-col>
-          <v-col cols="8">
-            <v-text-field
-              label="Email"
-              v-model="user.email"
-              filled
-              :rules="[rules.required, rules.email]"
-            />
-          </v-col>
-          <v-col cols="8">
-            <v-text-field
-              label="CPF"
-              type="number"
-              v-model="user.cpf"
-              filled
-              :rules="[rules.required, rules.cpf]"
-            />
-          </v-col>
-          <v-col cols="8">
-            <v-text-field
-              label="Telefone"
-              type="number"
-              v-model="user.phone"
-              filled
-              :rules="[rules.phone]"
-            />
-          </v-col>
-          <v-col cols="8">
-            <v-row justify="center">
-              <v-col cols="4">
-                <v-btn
-                  color="green lighten-2"
-                  @click="createUser"
-                  :loading="loading"
-                >Criar usuário</v-btn>
+          <v-card
+            align="center"
+            justify="center"
+            style="margin: 10px auto;"
+          >
+            <v-row
+              align="center"
+              justify="center"
+              class="flex-column"
+            >
+              <v-col
+                lg="8"
+                md="9"
+                sm="10"
+                cols="11"
+              >
+                <v-text-field
+                  label="Nome"
+                  v-model="user.name"
+                  filled
+                  :rules="[rules.required]"
+                />
               </v-col>
-              <v-col cols="4">
-                <back-button />
+              <v-col
+                lg="8"
+                md="9"
+                sm="10"
+                cols="11"
+              >
+                <v-text-field
+                  label="Email"
+                  v-model="user.email"
+                  filled
+                  :rules="[rules.required, rules.email]"
+                />
+              </v-col>
+              <v-col
+                lg="8"
+                md="9"
+                sm="10"
+                cols="11"
+              >
+                <v-text-field
+                  label="CPF"
+                  type="number"
+                  v-model="user.cpf"
+                  filled
+                  :rules="[rules.required, rules.cpf]"
+                />
+              </v-col>
+              <v-col
+                lg="8"
+                md="9"
+                sm="10"
+                cols="11"
+              >
+                <v-text-field
+                  label="Telefone"
+                  type="number"
+                  v-model="user.phone"
+                  filled
+                  :rules="[rules.phone]"
+                />
+              </v-col>
+              <v-col
+                lg="8"
+                md="9"
+                sm="10"
+                cols="11"
+              >
+                <v-row justify="center">
+                  <v-col
+                    sm="4"
+                    cols="12"
+                  >
+                    <v-btn
+                      color="green lighten-2"
+                      @click="createUser"
+                      :loading="loading"
+                    >Criar usuário</v-btn>
+                  </v-col>
+                  <v-col
+                    sm="4"
+                    cols="12"
+                  >
+                    <back-button />
+                  </v-col>
+                </v-row>
               </v-col>
             </v-row>
-          </v-col>
-        </v-row>
-      </v-card>
+          </v-card>
+        </v-col>
+      </v-row>
     </v-container>
   </v-form>
 </template>

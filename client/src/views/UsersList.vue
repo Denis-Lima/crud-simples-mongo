@@ -4,6 +4,7 @@
       <v-col>
         <v-card elevation="8">
           <v-data-table
+            class="custom-table-border"
             :headers="headers"
             :items="users"
             :items-per-page="itemsPerPageOptions[0]"
@@ -16,6 +17,7 @@
             :options.sync="pagination"
             :loading="loading"
             loading-text="Buscando usuários..."
+            locale="pt-BR"
           >
             <template #[`item.actions`]="{ item }">
               <v-tooltip
@@ -49,6 +51,9 @@
                 </template>
                 <span>Excluir</span>
               </v-tooltip>
+            </template>
+            <template v-slot:[`footer.page-text`]="items">
+              {{ items.pageStart }} - {{ items.pageStop }} de {{ items.itemsLength }}
             </template>
           </v-data-table>
           <confirm-dialog
@@ -149,3 +154,9 @@ export default {
     }
 }
 </script>
+
+<style>
+.v-data-table__mobile-table-row {
+  border-bottom: medium solid rgba(0, 0, 0, 0.12) !important;
+}
+</style>

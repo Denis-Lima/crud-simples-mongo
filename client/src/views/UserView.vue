@@ -1,70 +1,107 @@
 <template>
   <v-form ref="form">
     <v-container>
-      <v-card
-        align="center"
+      <v-row
         justify="center"
-        max-width="50%"
-        style="margin: 10px auto;"
-        elevation="5"
+        align="center"
+        no-gutters
       >
-        <v-row>
-          <v-col>
-            <p class="text-h3 font-weight-light">Dados do usuário</p>
-          </v-col>
-        </v-row>
-        <v-row
-          align="center"
-          justify="center"
+        <v-col
+          xl="6"
+          lg="8"
+          md="10"
+          sm="10"
+          cols="12"
         >
-          <v-col cols="5">
-            <v-text-field
-              label="Nome"
-              outlined
-              v-model="user.name"
-            />
-          </v-col>
-          <v-col cols="5">
-            <v-text-field
-              label="Email"
-              outlined
-              v-model="user.email"
-            />
-          </v-col>
-          <v-col cols="5">
-            <v-text-field
-              label="CPF"
-              type="number"
-              outlined
-              v-model="user.cpf"
-            />
-          </v-col>
-          <v-col cols="5">
-            <v-text-field
-              label="Telefone"
-              type="number"
-              outlined
-              v-model="user.phone"
-            />
-          </v-col>
-          <v-col cols="12">
-          </v-col>
-          <v-col cols="8">
-            <v-row justify="center">
-              <v-col cols="4">
-                <v-btn
-                  color="green lighten-2"
-                  @click="editUser"
-                  :loading="loading"
-                >Editar usuário</v-btn>
-              </v-col>
-              <v-col cols="4">
-                <back-button />
+          <v-card
+            align="center"
+            justify="center"
+            style="margin: 10px auto;"
+            elevation="5"
+          >
+            <v-row>
+              <v-col>
+                <p class="text-h3 font-weight-light">Dados do usuário</p>
               </v-col>
             </v-row>
-          </v-col>
-        </v-row>
-      </v-card>
+            <v-row
+              align="center"
+              justify="center"
+            >
+              <v-col
+                sm="8"
+                cols="11"
+              >
+                <v-text-field
+                  label="Nome"
+                  outlined
+                  v-model="user.name"
+                />
+              </v-col>
+              <v-col
+                sm="8"
+                cols="11"
+              >
+                <v-text-field
+                  label="Email"
+                  outlined
+                  v-model="user.email"
+                />
+              </v-col>
+              <v-col
+                sm="8"
+                cols="11"
+              >
+                <v-text-field
+                  label="CPF"
+                  type="number"
+                  outlined
+                  v-model="user.cpf"
+                />
+              </v-col>
+              <v-col
+                sm="8"
+                cols="11"
+              >
+                <v-text-field
+                  label="Telefone"
+                  type="number"
+                  outlined
+                  v-model="user.phone"
+                />
+              </v-col>
+              <v-col cols="12">
+              </v-col>
+              <v-col
+                lg="8"
+                md="9"
+                sm="10"
+                cols="11"
+              >
+                <v-row justify="center">
+                  <v-col
+                    sm="4"
+                    cols="12"
+                  >
+                    <v-btn
+                      color="green lighten-2"
+                      @click="editUser"
+                      :loading="loading"
+                    >Editar usuário</v-btn>
+                  </v-col>
+                  <v-col
+                    sm="4"
+                    cols="12"
+                    style="margin-left: 15px;"
+                  >
+                    <back-button />
+                  </v-col>
+                </v-row>
+              </v-col>
+            </v-row>
+          </v-card>
+        </v-col>
+      </v-row>
     </v-container>
   </v-form>
 </template>
