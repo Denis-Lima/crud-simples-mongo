@@ -77,7 +77,7 @@ export default {
     data() {
         return {
             pagination: {},
-            itemsPerPageOptions: [10, 20, 30],
+            itemsPerPageOptions: [5, 10, 20, 30],
             totalAmountItems: 0,
             users: [],
             headers: [
