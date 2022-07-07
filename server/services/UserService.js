@@ -28,8 +28,7 @@ const deleteUser = async(id) => {
 const findAllUsers = async({page, limit}) => {
     const users = await User.find().skip((page -1) * limit).limit(limit).exec()
     const totalUsers = await User.count()
-    const totalPages = Math.ceil(totalUsers / limit)
-    return {users, totalPages}
+    return {users, totalUsers}
 }
 
 module.exports = {
